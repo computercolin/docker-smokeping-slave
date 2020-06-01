@@ -49,10 +49,6 @@ services:
 
 * Shell access whilst the container is running: `docker exec -it smokeping /bin/bash`
 * To monitor the logs of the container in realtime: `docker logs -f smokeping-slave`
-* container version number
-  * `docker inspect -f '{{ index .Config.Labels "build_version" }}' CONTAINERNAME`
-* image version number
-  * `docker inspect -f '{{ index .Config.Labels "build_version" }}' cullorblind/smokeping-slave`
 
 ## Updating Info
 
