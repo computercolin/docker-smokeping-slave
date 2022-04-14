@@ -33,7 +33,8 @@ RUN \
  echo "**** install tcping script ****" && \
  install -m755 -D /defaults/tcpping /usr/bin/ && \
  mkdir /cache && \
- chown abc /cache
+ chown abc /cache && \
+ ln -s /usr/sbin/fping /usr/bin/fping
 
 # add local files
 COPY root/ /
