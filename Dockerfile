@@ -3,9 +3,9 @@ FROM lsiobase/alpine:3.11
 # set version label
 ARG BUILD_DATE
 ARG VERSION
-ARG SMOKEPING_VERSION
+# ARG SMOKEPING_VERSION
 LABEL build_version="version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="cullorblind"
+LABEL maintainer="computercolin"
 
 # copy tcpping script
 COPY tcpping /defaults/
