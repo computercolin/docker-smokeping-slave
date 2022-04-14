@@ -1,0 +1,41 @@
+version: "3.7"
+services:
+  # container name
+  smokeping-slave:
+    image: computercolin/smokeping-slave
+    container_name: csmokeping-slave
+    hostname: ${HOSTNAME}
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+      - SLAVE_SECRET=${SLAVE_SECRET}
+      - MASTER_URL=${MASTER_URL}
+    # volumes:
+    #   - smokeping-slave2-cache:/cache
+    #   - smokeping-slave2-config:/config
+    #   - smokeping-slave2-data:/data
+    # volumes:
+    #    # the directory where the RRD data persists -> /data
+    #    - /opt/smokeping/data:/data
+    #    # the configuration directory -> /config
+    #    # map to an empty host directory to get generic configuration
+    #    - /opt/smokeping/etc:/config
+    #    # the smokeping_secrets file (needed for master/slave)
+    #    - /opt/smokeping/etc/smokeping_secrets:/etc/smokeping/etc/smokeping_secrets
+    #    # if you want web interface basic authentication add a
+    #    # .htaccess that points to a htpasswd generated file
+    #    - /opt/smokeping/apache/.htaccess:/var/www/html/smokeping/.htaccess
+    #    # the htpasswd generated file can live anywhere (is pointed
+    #    # to by the .htaccess)
+    #    - /opt/smokeping/apache/smokeping-access:/smokeping-access
+    # ports:
+    #  # on which host port should I expose the apache webserver
+    #  # (master only)
+    #  - "33196:80"
+    restart: always
+    network_mode: bridge
+# volumes:
+#   smokeping-slave2-cache:
+#   smokeping-slave2-config:
+#   smokeping-slave2-data:
