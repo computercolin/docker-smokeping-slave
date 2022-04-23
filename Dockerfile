@@ -4,7 +4,7 @@ FROM lsiobase/alpine:3.13
 ARG BUILD_DATE
 ARG VERSION
 # ARG SMOKEPING_VERSION
-LABEL build_version="version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+LABEL build_version="version: ${VERSION} Build-date: ${BUILD_DATE}"
 LABEL maintainer="computercolin"
 
 # copy tcpping script
@@ -38,6 +38,12 @@ RUN \
 
 # add local files
 COPY root/ /
+
+# Fix slave non-reboot on config change bug PR181
+RUN \
+  echo "**** Patching Slave.pm w/ PR181 ****" && \
+  [ "$(sha1sum /usr/share/perl5/vendor_perl/Smokeping/Slave.pm | cut -d' ' -f1)" = 93f28590b1e24156fe0a74ce3814a434e8e7c7dd ] && \
+  cat /patch/Slave.pm > /usr/share/perl5/vendor_perl/Smokeping/Slave.pm
 
 # ports and volumes
 # EXPOSE 80
