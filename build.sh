@@ -5,4 +5,6 @@ if [ "$1" = "--new" ]; then
 fi
 echo ${VERSION} > VERSION
 
+BUILD_DATE="$(date +%Y-%m-%d)"
+
 docker build --build-arg VERSION="$VERSION" --build-arg BUILD_DATE="$BUILD_DATE" --no-cache --pull -t computercolin/smokeping-slave:latest -t computercolin/smokeping-slave:${VERSION} .
