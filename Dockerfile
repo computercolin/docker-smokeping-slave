@@ -19,7 +19,7 @@ RUN \
 	curl \
 	font-noto-cjk \
 	openssh-client \
-	smokeping \
+        smokeping=2.7.3-r5 \
 	ssmtp \
 	sudo \
 	tcptraceroute \
