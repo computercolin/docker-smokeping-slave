@@ -17,13 +17,13 @@ RUN \
 	bc \
 	bind-tools \
 	curl \
-	font-noto-cjk \
+	# font-noto-cjk \
+	# ttf-dejavu \
 	openssh-client \
         smokeping=2.7.3-r5 \
 	ssmtp \
 	sudo \
-	tcptraceroute \
-	ttf-dejavu && \
+	tcptraceroute && \
  echo "**** give setuid access to traceroute & tcptraceroute ****" && \
  chmod a+s /usr/bin/traceroute && \
  chmod a+s /usr/bin/tcptraceroute && \
