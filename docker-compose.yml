@@ -11,6 +11,11 @@ services:
       - TZ=${TIMEZONE}
       - SLAVE_SECRET=${SLAVE_SECRET}
       - MASTER_URL=${MASTER_URL}
+    logging:
+      driver: local
+      options:
+        max-size: "40m"
+        max-file: "5"
     # volumes:
     #   - smokeping-slave2-cache:/cache
     #   - smokeping-slave2-config:/config

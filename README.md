@@ -23,6 +23,9 @@ Or if you prefer, use the included `build.sh` script and run without pulling fro
     -e PGID=1000 \
     -e TZ=America/Chicago \
     --restart unless-stopped \
+    --log-driver local \
+    --log-opt max-size=40m \
+    --log-opt max-file=5 \
     computercolin/smokeping-slave:latest
 > docker start smokeping-slave
 ```
