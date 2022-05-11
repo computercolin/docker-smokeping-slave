@@ -1,5 +1,12 @@
 ## Based on [cullorblind/smokeping](https://github.com/cullorblind/docker-smokeping-slave) based on [linuxserver/smokeping](https://github.com/linuxserver/docker-smokeping)
 
+* Based on Smokeping 2.7.3
+* Includes patch to Smokeping [PR-181](https://github.com/oetiker/SmokePing/pull/181) -- allows Slave to correctly poll targets after master targets config changes
+
+### Build and run locally
+You can use the below commands to run with docker / docker-compose, pulling from docker hub.
+Or if you prefer, use the included `build.sh` script and run without pulling from docker hub.
+
 ### docker create
 
 * Replace SMOKEPINGHOSTNAME and SECRET with your own credentials for the master.
