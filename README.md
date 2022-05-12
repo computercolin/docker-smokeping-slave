@@ -2,6 +2,7 @@
 
 * Based on Smokeping 2.7.3
 * Includes patch to Smokeping [PR-181](https://github.com/oetiker/SmokePing/pull/181) -- allows Slave to correctly poll targets after master targets config changes
+* Includes PID-file fix so slave doesn't die when master has new targets config. [See discussion](https://github.com/oetiker/SmokePing/issues/44).
 
 ### Build and run locally
 You can use the below commands to run with docker / docker-compose, pulling from docker hub.
@@ -15,7 +16,7 @@ Or if you prefer, use the included `build.sh` script and run without pulling fro
 ```
 > mkdir -p </path/to/smokeping>/{cache,config,data}
 > docker create \
-    --name=smokeping-slave \
+    --name=csmokeping-slave \
     -h SMOKEPINGHOSTNAME \
     -e SLAVE_SECRET=SECRET \
     -e MASTER_URL=https://smokeping.example.com/cgi-bin/smokeping.cgi \
@@ -27,7 +28,7 @@ Or if you prefer, use the included `build.sh` script and run without pulling fro
     --log-opt max-size=40m \
     --log-opt max-file=5 \
     computercolin/smokeping-slave:latest
-> docker start smokeping-slave
+> docker start csmokeping-slave
 ```
 
 ### docker-compose
